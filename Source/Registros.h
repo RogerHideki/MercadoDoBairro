@@ -28,4 +28,9 @@ typedef struct tVenda {
     float precoTotal;
 } tVenda;
 
+typedef struct tItensCompra {
+    int codigo, cpfCliente, codigoProduto, quantidade;
+    float precoUnitario, precoTotal;
+} tItensCompra;
+
 #endif //PROVA2LABORATORIO_REGISTROS_H
