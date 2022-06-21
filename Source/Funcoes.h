@@ -5,6 +5,12 @@
 #ifndef PROVA2LABORATORIO_FUNCOES_H
 #define PROVA2LABORATORIO_FUNCOES_H
 
-void imprima();
+void menuPrincipal();
+
+void menuVendas();
+
+void menuClientes();
+
+void menuProdutos();
 
 #endif //PROVA2LABORATORIO_FUNCOES_H

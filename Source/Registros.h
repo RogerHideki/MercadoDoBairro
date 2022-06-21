@@ -4,6 +4,7 @@
 
 #ifndef PROVA2LABORATORIO_REGISTROS_H
 #define PROVA2LABORATORIO_REGISTROS_H
+
 typedef struct tData {
     int dia, mes, ano;
 } tData;
@@ -26,4 +27,5 @@ typedef struct tVenda {
     tData dataCompra;
     float precoTotal;
 } tVenda;
+
 #endif //PROVA2LABORATORIO_REGISTROS_H
