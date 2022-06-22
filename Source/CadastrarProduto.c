@@ -15,6 +15,13 @@ void cadastrarProduto() {
         return (-1);
     }
 
-    fwrite(bolsista, sizeof(tBolsista), 5, fProdutos);
+    codigo
+    setor[20]
+    nome[50]
+    preco
+    validade
+    estoque
+
+    fwrite(produto, sizeof(tProduto), 5, fProdutos);
     fclose(fProdutos);
 }

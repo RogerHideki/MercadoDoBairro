@@ -9,12 +9,12 @@ typedef struct tData {
     int dia, mes, ano;
 } tData;
 
-typedef struct tProduto {
-    int codigo, estoque;
-    char setor[20], nome[50];
-    double preco;
-    tData validade;
-} tProduto;
+typedef struct tVenda {
+    int codigo, quantidadeProdutos;
+    char cpfCliente[13];
+    tData dataCompra;
+    float precoTotal;
+} tVenda;
 
 typedef struct tCliente {
     char cpf[13], nome[50], endereco[50], cidade[50], estado[2];
@@ -22,12 +22,12 @@ typedef struct tCliente {
     int idade, pontos;
 } tCliente;
 
-typedef struct tVenda {
-    int codigo, quantidadeProdutos;
-    char cpfCliente[13];
-    tData dataCompra;
-    float precoTotal;
-} tVenda;
+typedef struct tProduto {
+    int codigo, estoque;
+    char setor[20], nome[50];
+    double preco;
+    tData validade;
+} tProduto;
 
 typedef struct tItensCompra {
     int codigo, codigoProduto, quantidade;
