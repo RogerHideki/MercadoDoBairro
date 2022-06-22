@@ -1,7 +1,9 @@
 #include <stdio.h>
+#include <windows.h>
+#include "Funcoes.h"
 
 void menuProdutos() {
-    //Variáveis locais
+    //Variável local
     int opcao;
 
     //Imprime o menu de produtos
@@ -10,4 +12,31 @@ void menuProdutos() {
     printf("3. Listar estoque de produtos por setor\n");
     printf("4. Listar produtos com estoque abaixo de 5\n");
     printf("9. Voltar\n");
+
+    //Pede uma opção, anota a opção escolhida e depois limpa a tela
+    printf("\nDigite uma opção: ");
+    scanf(" %d", &opcao);
+    system("cls");
+
+    //Seleciona a opção escolhida
+    switch (opcao) {
+        case 1:
+
+            break;
+        case 2:
+
+            break;
+        case 3:
+
+            break;
+        case 4:
+
+            break;
+        case 9:
+            menuPrincipal();
+            break;
+        default:
+            printf("Opção inválida\n\n");
+            menuProdutos();
+    }
 }

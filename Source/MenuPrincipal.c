@@ -3,7 +3,7 @@
 #include "Funcoes.h"
 
 void menuPrincipal() {
-    //Variáveis locais
+    //Variável local
     int opcao;
 
     //Imprime o menu principal
