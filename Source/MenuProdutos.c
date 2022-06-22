@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 void menuProdutos() {
     //Variáveis locais
     int opcao;

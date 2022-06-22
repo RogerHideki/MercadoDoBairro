@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <windows.h>
+#include "Funcoes.h"
+
 void menuPrincipal() {
     //Variáveis locais
     int opcao;
