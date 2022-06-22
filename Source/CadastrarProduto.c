@@ -14,4 +14,7 @@ void cadastrarProduto() {
         perror("Erro ao tentar abrir o arquivo\n");
         return (-1);
     }
+
+    fwrite(bolsista, sizeof(tBolsista), 5, fProdutos);
+    fclose(fProdutos);
 }
