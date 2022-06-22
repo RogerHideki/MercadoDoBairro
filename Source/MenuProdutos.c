@@ -21,7 +21,7 @@ void menuProdutos() {
     //Seleciona a opção escolhida
     switch (opcao) {
         case 1:
-
+            CadastrarProduto();
             break;
         case 2:
 

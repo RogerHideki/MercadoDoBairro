@@ -23,13 +23,15 @@ typedef struct tCliente {
 } tCliente;
 
 typedef struct tVenda {
-    int codigo, cpfCliente, quantidadeProdutos;
+    int codigo, quantidadeProdutos;
+    char cpfCliente[13];
     tData dataCompra;
     float precoTotal;
 } tVenda;
 
 typedef struct tItensCompra {
-    int codigo, cpfCliente, codigoProduto, quantidade;
+    int codigo, codigoProduto, quantidade;
+    char cpfCliente;
     float precoUnitario, precoTotal;
 } tItensCompra;
 
