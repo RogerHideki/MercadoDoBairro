@@ -2,6 +2,16 @@
 #include "Registros.h"
 
 void cadastrarProduto() {
-    //Variável local
+    //Arquivo
+    FILE *fProdutos;
+
+    //Registro
     tProduto produto;
+
+    //Abre o arquivo
+    fProdutos = fopen("../Source/Arquivos/Produtos.csv", "ab");
+    if (fProdutos == NULL) {
+        perror("Erro ao tentar abrir o arquivo\n");
+        return (-1);
+    }
 }
