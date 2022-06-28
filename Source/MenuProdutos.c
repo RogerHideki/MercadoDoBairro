@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <windows.h>
 #include "Funcoes.h"
 
 void menuProdutos() {
@@ -16,12 +15,12 @@ void menuProdutos() {
     //Pede uma opção, anota a opção escolhida e depois limpa a tela
     printf("\nDigite uma opção: ");
     scanf(" %d", &opcao);
-    system("cls");
+    limpaTela();
 
     //Seleciona a opção escolhida
     switch (opcao) {
         case 1:
-            CadastrarProduto();
+            cadastrarProduto();
             break;
         case 2:
 

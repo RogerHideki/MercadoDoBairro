@@ -13,6 +13,8 @@ void menuClientes();
 
 void menuProdutos();
 
-void cadastrarProduto();
+int cadastrarProduto();
+
+void limpaTela();
 
 #endif //PROVA2LABORATORIO_FUNCOES_H
