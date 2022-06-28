@@ -13,4 +13,6 @@ void menuClientes();
 
 void menuProdutos();
 
+void cadastrarProduto();
+
 #endif //PROVA2LABORATORIO_FUNCOES_H
