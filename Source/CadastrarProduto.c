@@ -40,9 +40,10 @@ int cadastrarProduto() {
         while (!valido) {
             printf("Setor: ");
             scanf(" %[^\n]s", produto.setor);
+            char v[] = "açougue";
             if (strcmp(produto.setor, "Higiene e limpeza") == 0 || strcmp(produto.setor, "Bebidas") == 0 ||
                 strcmp(produto.setor, "Frios") == 0 || strcmp(produto.setor, "Padaria") == 0 ||
-                strcmp(produto.setor, "Açougue") == 0) {
+                strcmp(produto.setor, v) == 0) {
                 valido = true;
             } else {
                 printf("\nSetor inválido, digite um setor válido\n\n");
