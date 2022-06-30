@@ -42,8 +42,8 @@ int cadastrarProduto(tProduto **produto, int codigo) {
         printf("Preço: ");
         scanf(" %lf", &novo->preco);
         printf("Data de validade (dd/mm/aaaa): ");
-        scanf(" %d/%d/%d", &novo->validade->dia, &novo->validade->mes,
-              &novo->validade->ano);
+        scanf(" %d/%d/%d", &novo->validade.dia, &novo->validade.mes,
+              &novo->validade.ano);
         valido = false;
         while (!valido) {
             printf("Quantidade em estoque: ");

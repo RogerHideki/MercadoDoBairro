@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include "Funcoes.h"
 
-int menuPrincipal() {
+int main() {
     SetConsoleOutputCP(65001);
 
     //Variável

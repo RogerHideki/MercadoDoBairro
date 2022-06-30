@@ -16,7 +16,7 @@
     bool valido;
 
     Abre o arquivo
-    fProdutos = fopen("../Source/Arquivos/Produtos.csv", "a");
+    fProdutos = fopen("../Source/Arquivos/Produtos.csv", "ab");
     if (fProdutos == NULL) {
         perror("Erro ao tentar abrir o arquivo\n");
         return (-1);

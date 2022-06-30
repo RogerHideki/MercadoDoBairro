@@ -26,7 +26,7 @@ typedef struct tProduto {
     int codigo, estoque;
     char setor[20], nome[50];
     double preco;
-    tData *validade;
+    tData validade;
 } tProduto;
 
 typedef struct tItensCompra {
