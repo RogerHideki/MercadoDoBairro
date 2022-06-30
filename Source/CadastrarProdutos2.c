@@ -24,30 +24,30 @@ int cadastrarProduto() {
 
     tam = codigo + quantidadeCadastros;
     for (codigo; tam; codigo++) {
-        produto->codigo = codigo + 1;
+        produto[codigo].codigo = codigo + 1;
         valido = false;
         while (!valido) {
             printf("Setor: ");
-            scanf(" %[^\n]s", produto->setor);
-            if (strcmp(produto->setor, "Higiene e limpeza") == 0 || strcmp(produto->setor, "Bebidas") == 0 ||
-                strcmp(produto->setor, "Frios") == 0 || strcmp(produto->setor, "Padaria") == 0 ||
-                strcmp(produto->setor, "Açougue") == 0) {
+            scanf(" %[^\n]s", produto[codigo].setor);
+            if (strcmp(produto[codigo].setor, "Higiene e limpeza") == 0 || strcmp(produto[codigo].setor, "Bebidas") == 0 ||
+                strcmp(produto[codigo].setor, "Frios") == 0 || strcmp(produto[codigo].setor, "Padaria") == 0 ||
+                strcmp(produto[codigo].setor, "Açougue") == 0) {
                 valido = true;
             } else {
                 printf("\nSetor inválido, digite um setor válido\n\n");
             }
         }
         printf("Nome: ");
-        scanf(" %[^\n]s", produto->nome);
+        scanf(" %[^\n]s", produto[codigo].nome);
         printf("Preço: ");
-        scanf(" %lf", &produto->preco);
+        scanf(" %lf", &produto[codigo].preco);
         printf("Data de validade (dd/mm/aaaa): ");
-        scanf(" %d/%d/%d", &produto->validade->dia, &produto->validade->mes, &produto->validade->ano);
+        scanf(" %d/%d/%d", &produto[codigo].validade->dia, &produto[codigo].validade->mes, &produto[codigo].validade->ano);
         valido = false;
         while (!valido) {
             printf("Quantidade em estoque: ");
-            scanf(" %d", &produto->estoque);
-            if (produto->estoque >= 0) {
+            scanf(" %d", &produto[codigo].estoque);
+            if (produto[codigo].estoque >= 0) {
                 valido = true;
             } else {
                 printf("\nQuantidade inválida, digite uma quantidade válida\n\n");
