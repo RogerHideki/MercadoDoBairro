@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "Funcoesteste.h"
-#include "Registrosteste.h"
+#include "Funcoes.h"
+#include "Registros.h"
 
 void menuProdutos() {
     //Variáveis

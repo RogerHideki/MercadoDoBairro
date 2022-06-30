@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
-#include "Funcoesteste.h"
-#include "Registrosteste.h"
+#include "Funcoes.h"
+#include "Registros.h"
 
 void cadastrarProduto(tProduto produto, int codigo) {
     int quantidadeCadastros;

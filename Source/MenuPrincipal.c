@@ -1,6 +1,6 @@
 #include <windows.h>
 #include <stdio.h>
-#include "Funcoesteste.h"
+#include "Funcoes.h"
 
 int menuPrincipal() {
     SetConsoleOutputCP(65001);
