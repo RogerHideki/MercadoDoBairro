@@ -15,12 +15,12 @@ int cadastrarProduto() {
     int maiorCodigo, fim, quantidadeCadastros;
     bool valido;
 
-    //Abre o arquivo
-    //fProdutos = fopen("../Source/Arquivos/Produtos.csv", "a");
-    //if (fProdutos == NULL) {
-    //    perror("Erro ao tentar abrir o arquivo\n");
-    //    return (-1);
-    //}
+    Abre o arquivo
+    fProdutos = fopen("../Source/Arquivos/Produtos.csv", "a");
+    if (fProdutos == NULL) {
+        perror("Erro ao tentar abrir o arquivo\n");
+        return (-1);
+    }
     //valido = false;
     //while (!valido) {
     //    printf("Quantidade de cadastros:");
@@ -32,16 +32,16 @@ int cadastrarProduto() {
     //        printf("Quantidade inválida, digite uma quantidade válida\n\n");
     //    }
     //}
-    if (produto.setor == "") {
-        maiorCodigo = 0;
-    }
-    fim = maiorCodigo + quantidadeCadastros;
-    for (maiorCodigo; maiorCodigo < fim; maiorCodigo++) {
-        produto.codigo = maiorCodigo + 1;
-        valido = false;
-        while (!valido) {
-            printf("Setor: ");
-            scanf(" %[^\n]s", produto.setor);
+    //if (produto.setor == "") {
+    //    maiorCodigo = 0;
+    //}
+    //fim = maiorCodigo + quantidadeCadastros;
+    //for (maiorCodigo; maiorCodigo < fim; maiorCodigo++) {
+    //    produto.codigo = maiorCodigo + 1;
+    //    valido = false;
+    //    while (!valido) {
+    //        printf("Setor: ");
+    //        scanf(" %[^\n]s", produto.setor);
             if (strcmp(produto.setor, "Higiene e limpeza") == 0 || strcmp(produto.setor, "Bebidas") == 0 ||
                 strcmp(produto.setor, "Frios") == 0 || strcmp(produto.setor, "Padaria") == 0 ||
                 strcmp(produto.setor, "Açougue") == 0) {

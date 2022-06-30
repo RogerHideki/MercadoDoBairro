@@ -1,23 +1,15 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
 #include "Funcoes.h"
 #include "Registros.h"
 
 int cadastrarProduto() {
-    //Arquivo
-    FILE *fProdutos;
-
-    //Variáveis locais
-    int quantidadeCadastros;
+    int quantidadeCadastros, tam, codigo = 0;
     bool valido;
+    tProduto *produto = malloc(sizeof(tProduto));
 
-    //Abre o arquivo
-    fProdutos = fopen("../Source/Arquivos/Produtos.csv", "a+");
-    if (!fProdutos) {
-        perror("Erro ao tentar abrir o arquivo\n");
-        return (-1);
-    }
     valido = false;
     while (!valido) {
         printf("Quantidade de cadastros:");
@@ -29,4 +21,22 @@ int cadastrarProduto() {
             printf("Quantidade inválida, digite uma quantidade válida\n\n");
         }
     }
-    fclose(fProdutos);
+
+    tam = codigo + quantidadeCadastros;
+    for (codigo; tam; codigo++) {
+        produto->codigo = codigo + 1;
+        valido = false;
+        while (!valido) {
+            printf("Setor: ");
+            scanf(" %[^\n]s", produto->setor);
+            if (strcmp(produto->setor, "Higiene e limpeza") == 0 || strcmp(produto->setor, "Bebidas") == 0 ||
+                strcmp(produto->setor, "Frios") == 0 || strcmp(produto->setor, "Padaria") == 0 ||
+                strcmp(produto->setor, "Açougue") == 0) {
+                valido = true;
+            } else {
+                printf("\nSetor inválido, digite um setor válido\n\n");
+            }
+        }
+        
+    }
+}
