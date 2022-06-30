@@ -1,73 +1,61 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
 #include "Funcoes.h"
 #include "Registros.h"
 
-//int cadastrarProduto() {
-    //Arquivo
-    FILE *fProdutos;
-
-    //Registro
-    tProduto produto;
-
-    //Variáveis locais
-    int maiorCodigo, fim, quantidadeCadastros;
+int cadastrarProduto(tProduto **produto, int codigo) {
+    int quantidadeCadastros, i, tam;
     bool valido;
+    tProduto *novo = malloc(sizeof(tProduto));
 
-    Abre o arquivo
-    fProdutos = fopen("../Source/Arquivos/Produtos.csv", "a");
-    if (fProdutos == NULL) {
-        perror("Erro ao tentar abrir o arquivo\n");
-        return (-1);
+    valido = false;
+    while (!valido) {
+        printf("Quantidade de cadastros:");
+        scanf(" %d", &quantidadeCadastros);
+        if (quantidadeCadastros > 0) {
+            valido = true;
+        } else {
+            limpaTela();
+            printf("Quantidade inválida, digite uma quantidade válida\n\n");
+        }
     }
-    //valido = false;
-    //while (!valido) {
-    //    printf("Quantidade de cadastros:");
-    //    scanf(" %d", &quantidadeCadastros);
-    //    if (quantidadeCadastros > 0) {
-    //        valido = true;
-    //    } else {
-    //        limpaTela();
-    //        printf("Quantidade inválida, digite uma quantidade válida\n\n");
-    //    }
-    //}
-    //if (produto.setor == "") {
-    //    maiorCodigo = 0;
-    //}
-    //fim = maiorCodigo + quantidadeCadastros;
-    //for (maiorCodigo; maiorCodigo < fim; maiorCodigo++) {
-    //    produto.codigo = maiorCodigo + 1;
-    //    valido = false;
-    //    while (!valido) {
-    //        printf("Setor: ");
-    //        scanf(" %[^\n]s", produto.setor);
-    //        if (strcmp(produto.setor, "Higiene e limpeza") == 0 || strcmp(produto.setor, "Bebidas") == 0 ||
-    //            strcmp(produto.setor, "Frios") == 0 || strcmp(produto.setor, "Padaria") == 0 ||
-    //            strcmp(produto.setor, "Açougue") == 0) {
-    //            valido = true;
-    //        } else {
-    //            printf("\nSetor inválido, digite um setor válido\n\n");
-    //        }
-    //    }
-    //    printf("Nome: ");
-    //    scanf(" %[^\n]s", produto.nome);
-    //    printf("Preço: ");
-    //    scanf(" %lf", &produto.preco);
-    //    printf("Data de validade (DD/MM/AAAA): ");
-    //    scanf(" %d/%d/%d", &produto.validade.dia, &produto.validade.mes, &produto.validade.ano);
-    //    valido = false;
-    //    while (!valido) {
-    //        printf("Quantidade em estoque: ");
-    //        scanf(" %d", &produto.estoque);
-    //        if (produto.estoque >= 0) {
-    //            valido = true;
-    //        } else {
-    //            printf("\nQuantidade inválida, digite uma quantidade válida\n\n");
-    //        }
-    //    }
-    //    limpaTela();
-        fwrite(&produto, sizeof(tProduto), 1, fProdutos);
+    tam = codigo + quantidadeCadastros;
+    for (i = codigo; i < tam; i++) {
+        novo->codigo = i + 1;
+        valido = false;
+        while (!valido) {
+            printf("Setor: ");
+            scanf(" %[^\n]s", novo->setor);
+            if (strcmp(novo->setor, "Higiene e limpeza") == 0 ||
+                strcmp(novo->setor, "Bebidas") == 0 ||
+                strcmp(novo->setor, "Frios") == 0 || strcmp(novo->setor, "Padaria") == 0 ||
+                strcmp(novo->setor, "Açougue") == 0) {
+                valido = true;
+            } else {
+                printf("\nSetor inválido, digite um setor válido\n\n");
+            }
+        }
+        printf("Nome: ");
+        scanf(" %[^\n]s", novo->nome);
+        printf("Preço: ");
+        scanf(" %lf", &novo->preco);
+        printf("Data de validade (dd/mm/aaaa): ");
+        scanf(" %d/%d/%d", &novo->validade->dia, &novo->validade->mes,
+              &novo->validade->ano);
+        valido = false;
+        while (!valido) {
+            printf("Quantidade em estoque: ");
+            scanf(" %d", &novo->estoque);
+            if (novo->estoque >= 0) {
+                valido = true;
+            } else {
+                printf("\nQuantidade inválida, digite uma quantidade válida\n\n");
+            }
+        }
+        produto[codigo] = novo;
+        limpaTela();
     }
-    fclose(fProdutos);
+    return (codigo + 1);
 }

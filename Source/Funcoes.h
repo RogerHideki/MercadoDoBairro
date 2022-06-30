@@ -13,7 +13,7 @@ void menuProdutos();
 
 void limpaTela();
 
-void cadastrarProduto();
+int cadastrarProduto();
 
 void imprimirEstoqueProdutos();
 
