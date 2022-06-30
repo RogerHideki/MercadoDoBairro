@@ -5,10 +5,10 @@
 #include "Funcoes.h"
 #include "Registros.h"
 
-int cadastrarProduto() {
-    int quantidadeCadastros, tam, codigo = 0;
+void cadastrarProduto(tProduto produto, int codigo) {
+    int quantidadeCadastros;
     bool valido;
-    tProduto *produto = malloc(sizeof(tProduto));
+    tProduto *novo = malloc(sizeof(tProduto));
 
     valido = false;
     while (!valido) {
@@ -22,14 +22,14 @@ int cadastrarProduto() {
         }
     }
 
-    tam = codigo + quantidadeCadastros;
-    for (codigo; tam; codigo++) {
+    for (codigo = 0; codigo < quantidadeCadastros; codigo++) {
         produto[codigo].codigo = codigo + 1;
         valido = false;
         while (!valido) {
             printf("Setor: ");
             scanf(" %[^\n]s", produto[codigo].setor);
-            if (strcmp(produto[codigo].setor, "Higiene e limpeza") == 0 || strcmp(produto[codigo].setor, "Bebidas") == 0 ||
+            if (strcmp(produto[codigo].setor, "Higiene e limpeza") == 0 ||
+                strcmp(produto[codigo].setor, "Bebidas") == 0 ||
                 strcmp(produto[codigo].setor, "Frios") == 0 || strcmp(produto[codigo].setor, "Padaria") == 0 ||
                 strcmp(produto[codigo].setor, "Açougue") == 0) {
                 valido = true;
@@ -42,7 +42,8 @@ int cadastrarProduto() {
         printf("Preço: ");
         scanf(" %lf", &produto[codigo].preco);
         printf("Data de validade (dd/mm/aaaa): ");
-        scanf(" %d/%d/%d", &produto[codigo].validade->dia, &produto[codigo].validade->mes, &produto[codigo].validade->ano);
+        scanf(" %d/%d/%d", &produto[codigo].validade->dia, &produto[codigo].validade->mes,
+              &produto[codigo].validade->ano);
         valido = false;
         while (!valido) {
             printf("Quantidade em estoque: ");
@@ -54,6 +55,5 @@ int cadastrarProduto() {
             }
         }
         limpaTela();
-
     }
 }

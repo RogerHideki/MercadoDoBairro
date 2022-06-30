@@ -5,7 +5,7 @@
 #ifndef PROVA2LABORATORIO_FUNCOES_H
 #define PROVA2LABORATORIO_FUNCOES_H
 
-void menuPrincipal();
+int menuPrincipal();
 
 void menuVendas();
 
@@ -13,7 +13,7 @@ void menuClientes();
 
 void menuProdutos();
 
-int cadastrarProduto();
+void cadastrarProduto();
 
 void limpaTela();
 
