@@ -37,6 +37,23 @@ int cadastrarProduto() {
                 printf("\nSetor inválido, digite um setor válido\n\n");
             }
         }
-        
+        printf("Nome: ");
+        scanf(" %[^\n]s", produto->nome);
+        printf("Preço: ");
+        scanf(" %lf", &produto->preco);
+        printf("Data de validade (dd/mm/aaaa): ");
+        scanf(" %d/%d/%d", &produto->validade->dia, &produto->validade->mes, &produto->validade->ano);
+        valido = false;
+        while (!valido) {
+            printf("Quantidade em estoque: ");
+            scanf(" %d", &produto->estoque);
+            if (produto->estoque >= 0) {
+                valido = true;
+            } else {
+                printf("\nQuantidade inválida, digite uma quantidade válida\n\n");
+            }
+        }
+        limpaTela();
+
     }
 }

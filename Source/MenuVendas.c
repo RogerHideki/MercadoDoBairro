@@ -6,9 +6,9 @@ void menuVendas() {
     int opcao;
 
     //Imprime o menu de vendas
-    printf("1. Cadastrar uma nova venda\n");
-    printf("2. Listar compras de um cliente\n");
-    printf("9. Voltar\n");
+    printf("1 - Cadastrar uma nova venda\n");
+    printf("2 - Listar compras de um cliente\n");
+    printf("9 - Voltar\n");
 
     //Pede uma opção, anota a opção escolhida e depois limpa a tela
     printf("\nDigite uma opção: ");

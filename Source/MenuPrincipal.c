@@ -6,10 +6,10 @@ void menuPrincipal() {
     int opcao;
 
     //Imprime o menu principal
-    printf("1. Vendas\n");
-    printf("2. Clientes\n");
-    printf("3. Produtos\n");
-    printf("9. Sair\n");
+    printf("1 - Vendas\n");
+    printf("2 - Clientes\n");
+    printf("3 - Produtos\n");
+    printf("9 - Sair\n");
 
     //Pede uma opção, anota a opção escolhida e depois limpa a tela
     printf("\nDigite uma opção: ");

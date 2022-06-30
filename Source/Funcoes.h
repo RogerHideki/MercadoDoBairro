@@ -17,4 +17,6 @@ int cadastrarProduto();
 
 void limpaTela();
 
+void imprimirEstoqueProdutos();
+
 #endif //PROVA2LABORATORIO_FUNCOES_H
