@@ -1,9 +1,9 @@
 //
-// Created by Roger Hideki on 20/06/2022.
+// Created by Roger Hideki on 30/06/2022.
 //
 
-#ifndef PROVA2LABORATORIO_REGISTROS_H
-#define PROVA2LABORATORIO_REGISTROS_H
+#ifndef MERCADODOBAIRRO_REGISTROS_H
+#define MERCADODOBAIRRO_REGISTROS_H
 
 typedef struct tData {
     int dia, mes, ano;
@@ -35,4 +35,4 @@ typedef struct tItensCompra {
     float precoUnitario, precoTotal;
 } tItensCompra;
 
-#endif //PROVA2LABORATORIO_REGISTROS_H
+#endif //MERCADODOBAIRRO_REGISTROS_H

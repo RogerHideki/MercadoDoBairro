@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "Funcoes.h"
-#include "Registros.h"
+#include "Funcoesteste.h"
+#include "Registrosteste.h"
 
 void imprimirEstoqueProdutos(tProduto **produto, int tam) {
     int i;

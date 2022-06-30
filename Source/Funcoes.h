@@ -1,11 +1,9 @@
 //
-// Created by Roger Hideki on 20/06/2022.
+// Created by Roger Hideki on 30/06/2022.
 //
 
-#ifndef PROVA2LABORATORIO_FUNCOES_H
-#define PROVA2LABORATORIO_FUNCOES_H
-
-int menuPrincipal();
+#ifndef MERCADODOBAIRRO_FUNCOES_H
+#define MERCADODOBAIRRO_FUNCOES_H
 
 void menuVendas();
 
@@ -13,10 +11,10 @@ void menuClientes();
 
 void menuProdutos();
 
-void cadastrarProduto();
-
 void limpaTela();
+
+void cadastrarProduto();
 
 void imprimirEstoqueProdutos();
 
-#endif //PROVA2LABORATORIO_FUNCOES_H
+#endif //MERCADODOBAIRRO_FUNCOES_H

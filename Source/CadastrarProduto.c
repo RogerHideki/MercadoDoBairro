@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
-#include "Funcoes.h"
-#include "Registros.h"
+#include "Funcoesteste.h"
+#include "Registrosteste.h"
 
 //int cadastrarProduto() {
     //Arquivo
