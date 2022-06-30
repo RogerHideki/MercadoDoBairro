@@ -12,11 +12,11 @@ int cadastrarProduto() {
     tProduto produto;
 
     //Variáveis locais
-    int i, fim, quantidadeCadastros;
+    int maiorCodigo, fim, quantidadeCadastros;
     bool valido;
 
     //Abre o arquivo
-    fProdutos = fopen("../Source/Arquivos/Produtos.csv", "ab");
+    fProdutos = fopen("../Source/Arquivos/Produtos.csv", "a");
     if (fProdutos == NULL) {
         perror("Erro ao tentar abrir o arquivo\n");
         return (-1);
@@ -32,18 +32,19 @@ int cadastrarProduto() {
             printf("Quantidade inválida, digite uma quantidade válida\n\n");
         }
     }
-    i += 0;
-    fim = i + quantidadeCadastros;
-    for (i; i < fim; i++) {
-        produto.codigo = i + 1;
+    if (produto.setor == "") {
+        maiorCodigo = 0;
+    }
+    fim = maiorCodigo + quantidadeCadastros;
+    for (maiorCodigo; maiorCodigo < fim; maiorCodigo++) {
+        produto.codigo = maiorCodigo + 1;
         valido = false;
         while (!valido) {
             printf("Setor: ");
             scanf(" %[^\n]s", produto.setor);
-            char v[] = "açougue";
             if (strcmp(produto.setor, "Higiene e limpeza") == 0 || strcmp(produto.setor, "Bebidas") == 0 ||
                 strcmp(produto.setor, "Frios") == 0 || strcmp(produto.setor, "Padaria") == 0 ||
-                strcmp(produto.setor, v) == 0) {
+                strcmp(produto.setor, "Açougue") == 0) {
                 valido = true;
             } else {
                 printf("\nSetor inválido, digite um setor válido\n\n");

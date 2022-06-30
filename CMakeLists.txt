@@ -5,4 +5,3 @@ set(CMAKE_C_STANDARD 99)
 
 add_executable(Main Source/main.c Source/Registros.h Source/Funcoes.h Source/MenuPrincipal.c Source/MenuVendas.c Source/MenuClientes.c Source/MenuProdutos.c Source/CadastrarProduto.c Source/LimpaTela.c)
 add_executable(Teste Source/Teste.c)
-add_executable(TesteCadastroProduto Source/CadastrarProduto.c Source/Registros.h Source/Funcoes.h Source/LimpaTela.c)
