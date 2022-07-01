@@ -26,7 +26,7 @@ void menuProdutos() {
                 codigo += cadastrarProduto(produto, codigo);
                 break;
             case 2:
-
+                alterarDadosProduto(produto, codigo);
                 break;
             case 3:
 

@@ -6,11 +6,11 @@ void imprimirEstoqueProdutos(tProduto **produto, int codigo) {
     int i;
 
     printf("Estoque de Produtos:\n");
-    printf("--------------------------------\n");
+    printf("----------------------------------------------------------------\n");
     for (i = 0; i < codigo; i++) {
-        printf("%d - %s\t%s\t%lf\t%2d/%2d/%4d\t%d\n", produto[i]->codigo, produto[i]->setor, produto[i]->nome,
+        printf("%d - %s\t%s\t%.2lf\t%2d/%2d/%4d\t%d\n", produto[i]->codigo, produto[i]->setor, produto[i]->nome,
                produto[i]->preco, produto[i]->validade.dia, produto[i]->validade.mes, produto[i]->validade.ano,
                produto[i]->estoque);
     }
-    printf("--------------------------------\n");
+    printf("----------------------------------------------------------------\n");
 }
