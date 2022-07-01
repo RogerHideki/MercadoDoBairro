@@ -7,7 +7,7 @@
 int cadastrarProduto(char arquivoProdutos[], int codigo) {
     tProduto produto;
     bool valido;
-    FILE *fProdutos = fopen(arquivoProdutos, "ab");
+    FILE *fProdutos = fopen("../Source/Arquivos/Produtos.dat", "ab");
 
     if (fProdutos) {
         produto.codigo = codigo;
