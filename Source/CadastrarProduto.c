@@ -6,11 +6,13 @@
 
 int cadastrarProduto(char arquivoProdutos[], int codigo) {
     tProduto produto;
+    int i = 1;
     bool valido;
     FILE *fProdutos = fopen("../Source/Arquivos/Produtos.dat", "ab");
 
     if (fProdutos) {
-        produto.codigo = codigo;
+        produto.codigo = i;
+        i++;
         valido = false;
         while (!valido) {
             printf("Setor: ");

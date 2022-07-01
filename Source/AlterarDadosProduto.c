@@ -8,7 +8,7 @@ void alterarDadosProduto(char arquivoProdutos[]) {
     tProduto produto;
     int opcao;
     bool valido;
-    FILE *fProdutos = fopen("../Source/Arquivos/Produtos.dat", "rb");
+    FILE *fProdutos = fopen("../Source/Arquivos/Produtos.dat", "rb+");
 
     if (fProdutos) {
         printf("Estoque de Produtos:\n");
