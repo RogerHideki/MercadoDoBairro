@@ -18,7 +18,7 @@ void alterarDadosProduto(tProduto **produto, int codigo) {
     if (opcao >= 0 && opcao < codigo) {
         tProduto *novo = malloc(sizeof(tProduto));
 
-        novo->codigo = opcao + 1;
+        novo->codigo = codigo + 1;
         valido = false;
         while (!valido) {
             printf("Setor: ");

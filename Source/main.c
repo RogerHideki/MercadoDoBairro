@@ -36,7 +36,6 @@ int main() {
                     printf("Opção inválida\n\n");
         }
     } while (opcao != 9);
-    printf("Programa finalizado\n");
 
     return 0;
 }
