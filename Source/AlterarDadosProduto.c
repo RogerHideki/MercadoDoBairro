@@ -14,11 +14,12 @@ void alterarDadosProduto(tProduto **produto, int codigo) {
     printf("\nDigite o código do produto que deseja alterar:");
     scanf(" %d", &opcao);
     opcao--;
+    limpaTela();
 
     if (opcao >= 0 && opcao < codigo) {
         tProduto *novo = malloc(sizeof(tProduto));
 
-        novo->codigo = codigo + 1;
+        novo->codigo = opcao + 1;
         valido = false;
         while (!valido) {
             printf("Setor: ");
@@ -50,6 +51,7 @@ void alterarDadosProduto(tProduto **produto, int codigo) {
             }
         }
         produto[opcao] = novo;
+        limpaTela();
     } else
-        printf("\nCódigo inválido\n");
+        printf("Código inválido\n\n");
 }

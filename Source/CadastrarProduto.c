@@ -40,7 +40,7 @@ int cadastrarProduto(tProduto **produto, int codigo) {
             printf("\nQuantidade inválida, digite uma quantidade válida\n\n");
         }
     }
-    limpaTela();
     produto[codigo] = novo;
+    limpaTela();
     return 1;
 }
