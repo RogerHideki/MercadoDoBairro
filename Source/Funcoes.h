@@ -17,6 +17,4 @@ int cadastrarProduto();
 
 void alterarDadosProduto();
 
-void imprimirEstoqueProdutos();
-
 #endif //MERCADODOBAIRRO_FUNCOES_H
