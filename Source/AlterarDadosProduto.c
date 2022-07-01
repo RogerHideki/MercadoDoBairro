@@ -5,11 +5,11 @@
 #include "Funcoes.h"
 #include "Registros.h"
 
-void alterarDadosProduto(tProduto **produto, int codigo) {
+void alterarDadosProduto(char arquivoProdutos[]) {
     int opcao;
     bool valido;
 
-    imprimirEstoqueProdutos(produto, codigo);
+    imprimirEstoqueProdutos(arquivoProdutos);
 
     printf("\nDigite o código do produto que deseja alterar:");
     scanf(" %d", &opcao);

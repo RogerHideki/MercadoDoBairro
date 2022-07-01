@@ -1,11 +1,10 @@
 #include <stdio.h>
 #include "Funcoes.h"
-#include "Registros.h"
 
 void menuProdutos() {
     //Variáveis
-    tProduto *produto;
-    int opcao, codigo = 0;
+    char arquivoProdutos[] = {"Produtos.dat"};
+    int opcao, codigo = 1;
 
     do {
         //Imprime o menu de produtos
@@ -23,10 +22,10 @@ void menuProdutos() {
         //Seleciona a opção escolhida
         switch (opcao) {
             case 1:
-                codigo += cadastrarProduto(produto, codigo);
+                codigo += cadastrarProduto(arquivoProdutos, codigo);
                 break;
             case 2:
-                alterarDadosProduto(produto, codigo);
+                alterarDadosProduto(arquivoProdutos);
                 break;
             case 3:
 
