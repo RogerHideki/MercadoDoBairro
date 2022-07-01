@@ -43,8 +43,10 @@ int cadastrarProduto(char arquivoProdutos[], int codigo) {
         }
         fwrite(&produto, sizeof(tProduto), 1, fProdutos);
         fclose(fProdutos);
-    } else
-        printf("Erro ao abrir arquivo\n");
-    limpaTela();
+        limpaTela();
+    } else {
+        limpaTela();
+        printf("Erro ao abrir arquivo\n\n");
+    }
     return 1;
 }

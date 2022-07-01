@@ -57,12 +57,16 @@ void alterarDadosProduto(char arquivoProdutos[]) {
                     printf("\nQuantidade inválida, digite uma quantidade válida\n\n");
                 }
             }
-            fseek
-            fwrite
+            fseek(fProdutos, opcao * sizeof(tProduto), SEEK_SET);
+            fwrite(&produto, sizeof(tProduto), 1, fProdutos);
             limpaTela();
-        } else
+        } else {
+            limpaTela();
             printf("Código inválido\n\n");
+        }
         fclose(fProdutos);
-    } else
-        printf("Erro ao abrir arquivo\n");
+    } else {
+        limpaTela();
+        printf("Erro ao abrir arquivo\n\n");
+    }
 }
