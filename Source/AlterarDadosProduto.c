@@ -4,7 +4,7 @@
 #include "Funcoes.h"
 #include "Registros.h"
 
-void alterarDadosProduto(char arquivoProdutos[]) {
+void alterarDadosProduto() {
     tProduto produto;
     int opcao;
     bool valido;

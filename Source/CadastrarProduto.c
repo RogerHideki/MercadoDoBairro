@@ -4,15 +4,13 @@
 #include "Funcoes.h"
 #include "Registros.h"
 
-int cadastrarProduto(char arquivoProdutos[], int codigo) {
+int cadastrarProduto(int codigo) {
     tProduto produto;
-    int i = 1;
     bool valido;
     FILE *fProdutos = fopen("../Source/Arquivos/Produtos.dat", "ab");
 
     if (fProdutos) {
-        produto.codigo = i;
-        i++;
+        produto.codigo = codigo;
         valido = false;
         while (!valido) {
             printf("Setor: ");

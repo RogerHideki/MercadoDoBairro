@@ -22,10 +22,10 @@ void menuProdutos() {
         //Seleciona a opção escolhida
         switch (opcao) {
             case 1:
-                codigo += cadastrarProduto(arquivoProdutos, codigo);
+                codigo += cadastrarProduto(codigo);
                 break;
             case 2:
-                alterarDadosProduto(arquivoProdutos);
+                alterarDadosProduto();
                 break;
             case 3:
 
