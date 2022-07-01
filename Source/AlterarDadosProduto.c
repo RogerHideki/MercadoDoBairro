@@ -57,7 +57,8 @@ void alterarDadosProduto(char arquivoProdutos[]) {
                     printf("\nQuantidade inválida, digite uma quantidade válida\n\n");
                 }
             }
-            produto[opcao] = novo;
+            fseek
+            fwrite
             limpaTela();
         } else
             printf("Código inválido\n\n");
