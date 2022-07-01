@@ -22,9 +22,7 @@ void imprimirEstoqueProdutos(char arquivoProdutos[]) {
         opcao--;
         limpaTela();
 
-        if (opcao >= 0 && opcao < codigo) {
-            tProduto *novo = malloc(sizeof(tProduto));
-
+        if (opcao >= 0 && opcao < produto.codigo) {
             produto.codigo = opcao + 1;
             valido = false;
             while (!valido) {
