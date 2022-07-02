@@ -17,4 +17,6 @@ int cadastrarProduto();
 
 void alterarDadosProduto();
 
+void estoqueBaixo();
+
 #endif //MERCADODOBAIRRO_FUNCOES_H

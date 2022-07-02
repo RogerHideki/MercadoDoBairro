@@ -37,7 +37,7 @@ void menuProdutos() {
 
                 break;
             case 4:
-
+                estoqueBaixo();
                 break;
             default:
                 if (opcao != 9)
