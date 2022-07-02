@@ -17,6 +17,7 @@ void estoqueBaixo() {
             }
         }
         printf("------------------------------------------------------------------------------------------------------------------------------------------\n\n");
+        fclose(fProdutos);
     } else {
         limpaTela();
         printf("Erro ao abrir arquivo\n\n");
