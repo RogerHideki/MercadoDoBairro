@@ -34,7 +34,7 @@ void menuProdutos() {
                 alterarDadosProduto();
                 break;
             case 3:
-
+                estoquePorSetor();
                 break;
             case 4:
                 estoqueBaixo();

@@ -21,5 +21,4 @@ void estoqueBaixo() {
         limpaTela();
         printf("Erro ao abrir arquivo\n\n");
     }
-
 }
