@@ -16,10 +16,8 @@ int cadastrarCliente(int codigo) {
         printf("Nome: ");
         scanf(" %[^\n]s", cliente.nome);
         printf("Data de nascimento: ");
-        scanf(" %lf", &cliente.preco);
-        printf("Data de validade (dd/mm/aaaa): ");
-        scanf(" %d/%d/%d", &cliente.validade.dia, &cliente.validade.mes,
-              &cliente.validade.ano);
+        scanf(" %d/%d/%d", &cliente.dataNascimento.dia, &cliente.dataNascimento.mes,
+              &cliente.dataNascimento.ano);
         valido = false;
         while (!valido) {
             printf("Quantidade em estoque: ");
