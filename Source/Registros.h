@@ -19,7 +19,7 @@ typedef struct tVenda {
 typedef struct tCliente {
     char cpf[13], nome[50], endereco[50], cidade[50], estado[2];
     tData dataNascimento;
-    int idade, pontos;
+    int codigo, idade, pontos;
 } tCliente;
 
 typedef struct tProduto {

@@ -1,9 +1,15 @@
 #include <stdio.h>
 #include "Funcoes.h"
+#include "Registros.h"
 
 void menuClientes() {
-    //Variável
-    int opcao;
+    //Variáveis
+    tCliente cliente;
+    int opcao, codigo = 1;
+    FILE *fClientes = fopen("../Arquivos/Cliente.dat", "rb");
+    while (fread(&cliente, sizeof(tCliente), 1, fClientes))
+        codigo += 1;
+    fclose(fClientes);
 
     do {
         //Imprime o menu de clientes
@@ -22,7 +28,7 @@ void menuClientes() {
         //Seleciona a opção escolhida
         switch (opcao) {
             case 1:
-
+                codigo += cadastrarCliente(codigo);
                 break;
             case 2:
 
