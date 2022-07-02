@@ -8,7 +8,7 @@ void alterarDadosProduto() {
     tProduto produto;
     int opcao;
     bool valido;
-    FILE *fProdutos = fopen("../Source/Arquivos/Produtos.dat", "rb+");
+    FILE *fProdutos = fopen("../Arquivos/Produtos.dat", "rb+");
 
     if (fProdutos) {
         printf("Estoque de Produtos:\n");
@@ -19,7 +19,7 @@ void alterarDadosProduto() {
         }
         printf("------------------------------------------------------------------------------------------------------------------------------------------\n");
 
-        printf("\nDigite o código do produto que deseja alterar:");
+        printf("\nDigite o código do produto que deseja alterar: ");
         scanf(" %d", &opcao);
         opcao--;
         limpaTela();

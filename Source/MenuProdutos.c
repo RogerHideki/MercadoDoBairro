@@ -1,17 +1,23 @@
 #include <stdio.h>
 #include "Funcoes.h"
+#include "Registros.h"
 
 void menuProdutos() {
     //Variáveis
-    char arquivoProdutos[] = {"Produtos.dat"};
+    tProduto produto;
     int opcao, codigo = 1;
+    FILE *fProdutos = fopen("../Arquivos/Produtos.dat", "rb");
+
+    while(fread(&produto, sizeof(tProduto), 1, fProdutos))
+        codigo += 1;
+    fclose(fProdutos);
 
     do {
         //Imprime o menu de produtos
         printf("1 - Cadastrar um novo produto\n");
         printf("2 - Alterar dados de um produto\n");
         printf("3 - Listar estoque de produtos por setor\n");
-        printf("4 - Listar produtos com estoque abaixo de 5\n");
+        printf("4 - Listar produtos com estoque abaixo de 5 unidades\n");
         printf("9 - Voltar\n");
 
         //Pede uma opção, anota a opção escolhida e depois limpa a tela

@@ -7,7 +7,7 @@
 int cadastrarProduto(int codigo) {
     tProduto produto;
     bool valido;
-    FILE *fProdutos = fopen("../Source/Arquivos/Produtos.dat", "ab");
+    FILE *fProdutos = fopen("../Arquivos/Produtos.dat", "ab");
 
     if (fProdutos) {
         produto.codigo = codigo;
