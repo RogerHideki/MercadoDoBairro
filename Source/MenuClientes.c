@@ -40,7 +40,7 @@ void menuClientes() {
 
                 break;
             case 5:
-
+                clientesMais1000Pontos();
                 break;
             default:
                 if (opcao != 9)

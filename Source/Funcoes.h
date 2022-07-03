@@ -19,6 +19,8 @@ int idade();
 
 void alterarDadosCliente();
 
+void clientesMais1000Pontos();
+
 int cadastrarProduto();
 
 void alterarDadosProduto();
