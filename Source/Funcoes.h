@@ -13,6 +13,12 @@ void menuProdutos();
 
 void limpaTela();
 
+int cadastrarCliente();
+
+int idade();
+
+void alterarDadosCliente();
+
 int cadastrarProduto();
 
 void alterarDadosProduto();

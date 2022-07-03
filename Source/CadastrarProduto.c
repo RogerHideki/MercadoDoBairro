@@ -26,8 +26,16 @@ int cadastrarProduto(int codigo) {
         }
         printf("Nome: ");
         scanf(" %[^\n]s", produto.nome);
-        printf("Preço: ");
-        scanf(" %lf", &produto.preco);
+        valido = false;
+        while (!valido) {
+            printf("Preço: ");
+            scanf(" %lf", &produto.preco);
+            if (produto.preco >= 0) {
+                valido = true;
+            } else {
+                printf("\nPreço inválido, digite um preço válido\n\n");
+            }
+        }
         printf("Data de validade (dd/mm/aaaa): ");
         scanf(" %d/%d/%d", &produto.validade.dia, &produto.validade.mes,
               &produto.validade.ano);

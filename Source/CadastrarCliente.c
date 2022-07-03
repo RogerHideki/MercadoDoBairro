@@ -1,12 +1,9 @@
 #include <stdio.h>
-#include <stdbool.h>
-#include <string.h>
 #include "Funcoes.h"
 #include "Registros.h"
 
 int cadastrarCliente(int codigo) {
     tCliente cliente;
-    bool valido;
     FILE *fClientes = fopen("../Arquivos/Cliente.dat", "ab");
 
     if (fClientes) {
@@ -19,8 +16,13 @@ int cadastrarCliente(int codigo) {
         scanf(" %d/%d/%d", &cliente.dataNascimento.dia, &cliente.dataNascimento.mes,
               &cliente.dataNascimento.ano);
         cliente.idade = idade();
-
-
+        printf("Endereço: ");
+        scanf(" %[^\n]s", cliente.endereco);
+        printf("Cidade: ");
+        scanf(" %[^\n]s", cliente.cidade);
+        printf("Estado: ");
+        scanf(" %[^\n]s", cliente.estado);
+        cliente.pontos = 0;
         fwrite(&cliente, sizeof(tCliente), 1, fClientes);
         fclose(fClientes);
         limpaTela();

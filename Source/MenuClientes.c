@@ -34,7 +34,7 @@ void menuClientes() {
 
                 break;
             case 3:
-
+                alterarDadosCliente();
                 break;
             case 4:
 
