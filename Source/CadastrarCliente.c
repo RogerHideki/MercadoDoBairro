@@ -2,14 +2,16 @@
 #include "Funcoes.h"
 #include "Registros.h"
 
-int cadastrarCliente(int codigo) {
+int cadastrarCliente(int codigo, int cpfCadastrado) {
     tCliente cliente;
     FILE *fClientes = fopen("../Arquivos/Cliente.dat", "ab");
 
     if (fClientes) {
         cliente.codigo = codigo;
-        printf("CPF: ");
-        scanf(" %[^\n]s", cliente.cpf);
+        if (cpfCadastrado == 0) {
+            printf("CPF: ");
+            scanf(" %[^\n]s", cliente.cpf);
+        }
         printf("Nome: ");
         scanf(" %[^\n]s", cliente.nome);
         printf("Data de nascimento: ");
