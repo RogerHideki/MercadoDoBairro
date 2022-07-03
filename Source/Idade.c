@@ -13,7 +13,7 @@ int idade(tCliente cliente) {
         if ((DataAtual->tm_mon + 1) - cliente.dataNascimento.mes < 0)
             return ((DataAtual->tm_year + 1900) - cliente.dataNascimento.ano - 1);
         else if ((DataAtual->tm_mon + 1) - cliente.dataNascimento.mes == 0) {
-            if ((DataAtual->tm_mday) - cliente.dataNascimento.dia);
+            if ((DataAtual->tm_mday) - cliente.dataNascimento.dia < 0)
                 return ();
             else
                 return ();
