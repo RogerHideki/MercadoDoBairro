@@ -24,7 +24,22 @@ void alterarDadosCliente() {
 
         if (opcao >= 0 && opcao < cliente.codigo) {
             cliente.codigo = opcao + 1;
-
+            printf("CPF: ");
+            scanf(" %[^\n]s", cliente.cpf);
+            printf("Nome: ");
+            scanf(" %[^\n]s", cliente.nome);
+            printf("Data de nascimento: ");
+            scanf(" %d/%d/%d", &cliente.dataNascimento.dia, &cliente.dataNascimento.mes,
+                  &cliente.dataNascimento.ano);
+            cliente.idade = idade();
+            printf("Endereço: ");
+            scanf(" %[^\n]s", cliente.endereco);
+            printf("Cidade: ");
+            scanf(" %[^\n]s", cliente.cidade);
+            printf("Estado: ");
+            scanf(" %[^\n]s", cliente.estado);
+            cliente.pontos = 0;
+            scanf(" %d", cliente.pontos);
             fseek(fClientes, opcao * sizeof(tCliente), SEEK_SET);
             fwrite(&produto, sizeof(tCliente), 1, fClientes);
             limpaTela();
