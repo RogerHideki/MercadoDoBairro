@@ -41,7 +41,7 @@ void alterarDadosCliente() {
             cliente.pontos = 0;
             scanf(" %d", cliente.pontos);
             fseek(fClientes, opcao * sizeof(tCliente), SEEK_SET);
-            fwrite(&produto, sizeof(tCliente), 1, fClientes);
+            fwrite(&cliente, sizeof(tCliente), 1, fClientes);
             limpaTela();
         } else {
             limpaTela();
