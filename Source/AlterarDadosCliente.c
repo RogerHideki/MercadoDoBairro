@@ -11,7 +11,7 @@ void alterarDadosCliente() {
         printf("Lista de Clientes:\n");
         printf("------------------------------------------------------------------------------------------------------------------------------------------\n");
         while (fread(&cliente, sizeof(tCliente), 1, fClientes)) {
-            printf("%d - %13s\t%50s\t%2d/%2d/%4d\t%d anos\t\n", cliente.codigo, cliente.cpf, cliente.nome,
+            printf("%d - %13s\t%50s\t%2d/%2d/%4d\t%d anos\t%50s\t%50s\t%2s\t%d\n", cliente.codigo, cliente.cpf, cliente.nome,
                    cliente.dataNascimento.dia, cliente.dataNascimento.mes, cliente.dataNascimento.ano, cliente.idade,
                    cliente.endereco, cliente.cidade, cliente.estado, cliente.pontos);
         }
