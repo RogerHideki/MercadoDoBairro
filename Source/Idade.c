@@ -9,9 +9,9 @@ int main()
     s = time(NULL);
     DataAtual = localtime(&s);
 
-    printf("Day of the month = %d\n",DataAtual->tm_mday);
-    printf("Month of this year = %d\n",(DataAtual->tm_mon + 1));
-    printf("Current year = %d\n",(DataAtual->tm_year + 1900));
+    if (DataAtual->tm_year + 1900)-
+    DataAtual->tm_mon + 1));
+    DataAtual->tm_mday;
 
     return 0;
 }
