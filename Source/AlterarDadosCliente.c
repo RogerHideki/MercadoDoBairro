@@ -9,15 +9,15 @@ void alterarDadosCliente() {
 
     if (fClientes) {
         printf("Lista de Clientes:\n");
-        printf("------------------------------------------------------------------------------------------------------------------------------------------\n");
+        printf("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
         while (fread(&cliente, sizeof(tCliente), 1, fClientes)) {
             printf("%d - %13s\t%50s\t%2d/%2d/%4d\t%d anos\t%50s\t%50s\t%2s\t%d pontos\n", cliente.codigo, cliente.cpf,
                    cliente.nome, cliente.dataNascimento.dia, cliente.dataNascimento.mes, cliente.dataNascimento.ano,
                    cliente.idade, cliente.endereco, cliente.cidade, cliente.estado, cliente.pontos);
         }
-        printf("------------------------------------------------------------------------------------------------------------------------------------------\n");
+        printf("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n");
 
-        printf("\nDigite o código do cliente que deseja alterar: ");
+        printf("Digite o código do cliente que deseja alterar: ");
         scanf(" %d", &opcao);
         opcao--;
         limpaTela();
@@ -31,15 +31,15 @@ void alterarDadosCliente() {
             printf("Data de nascimento: ");
             scanf(" %d/%d/%d", &cliente.dataNascimento.dia, &cliente.dataNascimento.mes,
                   &cliente.dataNascimento.ano);
-            cliente.idade = idade();
+            cliente.idade = idade(cliente);
             printf("Endereço: ");
             scanf(" %[^\n]s", cliente.endereco);
             printf("Cidade: ");
             scanf(" %[^\n]s", cliente.cidade);
             printf("Estado: ");
             scanf(" %[^\n]s", cliente.estado);
-            cliente.pontos = 0;
-            scanf(" %d", cliente.pontos);
+            printf("Pontos: ");
+            scanf(" %d", &cliente.pontos);
             fseek(fClientes, opcao * sizeof(tCliente), SEEK_SET);
             fwrite(&cliente, sizeof(tCliente), 1, fClientes);
             limpaTela();

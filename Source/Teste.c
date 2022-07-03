@@ -1,27 +1,22 @@
 #include <stdio.h>
 #include <time.h>
 
-int teste() {
-    time_t s;
-    struct tm *DataAtual;
+int main() {
+    time_t t = time(NULL);
+    struct tm dataAtual = *localtime(&t);
 
-    s = time(NULL);
-    DataAtual = localtime(&s);
-
-    if ((DataAtual->tm_year + 1900) - 2003 > 0) {
-        if ((DataAtual->tm_mon + 1) - 8 < 0)
-            printf((DataAtual->tm_year));
-        else if ((DataAtual->tm_mon + 1) - 8 == 0) {
-            if ((DataAtual->tm_mday) - 19 < 0)
-                printf((DataAtual->tm_year));
+    if (dataAtual.tm_year + 1900 - 2003 > 0) {
+        if (dataAtual.tm_mon + 1 - 8 < 0)
+            printf(" %d", dataAtual.tm_year + 1900 - 2003 - 1);
+        else if (dataAtual.tm_mon + 1 - 8 == 0) {
+            if (dataAtual.tm_mday - 19 < 0)
+                printf(" %d", dataAtual.tm_year + 1900 - 2003 - 1);
             else
-                printf((DataAtual->tm_year));
+                printf(" %d", dataAtual.tm_year + 1900 - 2003);
         }
-        else if ((DataAtual->tm_mon + 1) - 8 > 0)
-            printf((DataAtual->tm_year));
+        else if (dataAtual.tm_mon + 1 - 8 > 0)
+            printf(" %d", dataAtual.tm_year + 1900 - 2003);
     }
     else
-        printf(0);
-
-    return 0;
+        printf("0");
 }

@@ -12,14 +12,14 @@ void alterarDadosProduto() {
 
     if (fProdutos) {
         printf("Estoque de Produtos:\n");
-        printf("------------------------------------------------------------------------------------------------------------------------------------------\n");
+        printf("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
         while (fread(&produto, sizeof(tProduto), 1, fProdutos)) {
             printf("%d - %20s\t%50s\tR$ %.2lf\t%2d/%2d/%4d\t%d unidades\n", produto.codigo, produto.setor, produto.nome,
                    produto.preco, produto.validade.dia, produto.validade.mes, produto.validade.ano, produto.estoque);
         }
-        printf("------------------------------------------------------------------------------------------------------------------------------------------\n");
+        printf("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n");
 
-        printf("\nDigite o código do produto que deseja alterar: ");
+        printf("Digite o código do produto que deseja alterar: ");
         scanf(" %d", &opcao);
         opcao--;
         limpaTela();

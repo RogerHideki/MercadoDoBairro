@@ -15,7 +15,7 @@ int cadastrarCliente(int codigo) {
         printf("Data de nascimento: ");
         scanf(" %d/%d/%d", &cliente.dataNascimento.dia, &cliente.dataNascimento.mes,
               &cliente.dataNascimento.ano);
-        cliente.idade = idade();
+        cliente.idade = idade(cliente);
         printf("Endereço: ");
         scanf(" %[^\n]s", cliente.endereco);
         printf("Cidade: ");
