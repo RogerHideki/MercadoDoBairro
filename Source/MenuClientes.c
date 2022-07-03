@@ -7,9 +7,12 @@ void menuClientes() {
     tCliente cliente;
     int opcao, codigo = 1;
     FILE *fClientes = fopen("../Arquivos/Cliente.dat", "rb");
-    while (fread(&cliente, sizeof(tCliente), 1, fClientes))
-        codigo += 1;
-    fclose(fClientes);
+
+    if (fClientes) {
+        while (fread(&cliente, sizeof(tCliente), 1, fClientes))
+            codigo += 1;
+        fclose(fClientes);
+    }
 
     do {
         //Imprime o menu de clientes

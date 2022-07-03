@@ -8,9 +8,11 @@ void menuProdutos() {
     int opcao, codigo = 1;
     FILE *fProdutos = fopen("../Arquivos/Produtos.dat", "rb");
 
-    while (fread(&produto, sizeof(tProduto), 1, fProdutos))
-        codigo += 1;
-    fclose(fProdutos);
+    if (fProdutos) {
+        while (fread(&produto, sizeof(tProduto), 1, fProdutos))
+            codigo += 1;
+        fclose(fProdutos);
+    }
 
     do {
         //Imprime o menu de produtos
