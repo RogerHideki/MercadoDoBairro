@@ -18,16 +18,9 @@ int cadastrarCliente(int codigo) {
         printf("Data de nascimento: ");
         scanf(" %d/%d/%d", &cliente.dataNascimento.dia, &cliente.dataNascimento.mes,
               &cliente.dataNascimento.ano);
-        valido = false;
-        while (!valido) {
-            printf("Quantidade em estoque: ");
-            scanf(" %d", &cliente.estoque);
-            if (cliente.estoque >= 0) {
-                valido = true;
-            } else {
-                printf("\nQuantidade inválida, digite uma quantidade válida\n\n");
-            }
-        }
+        cliente.idade = idade();
+
+
         fwrite(&cliente, sizeof(tCliente), 1, fClientes);
         fclose(fClientes);
         limpaTela();
