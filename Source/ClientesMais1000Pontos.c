@@ -4,7 +4,6 @@
 
 void clientesMais1000Pontos() {
     tCliente cliente;
-    int i;
     FILE *fClientes;
 
     fClientes = fopen("../Arquivos/Cliente.dat", "rb");

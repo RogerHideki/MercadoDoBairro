@@ -37,7 +37,7 @@ void menuClientes() {
                 alterarDadosCliente();
                 break;
             case 4:
-
+                quantidadeClientesIdadeEntre18E25();
                 break;
             case 5:
                 clientesMais1000Pontos();
