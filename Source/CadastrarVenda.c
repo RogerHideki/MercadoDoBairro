@@ -9,7 +9,7 @@ void cadastrarVenda() {
     tCliente cliente;
     tProduto produto;
     tItensCompra itensCompra;
-    int codigo = 1, cadastrado = 0;
+    int codigo = 1, cadastrado = 0, existe;
     time_t t = time(NULL);
     struct tm dataAtual = *localtime(&t);
     FILE *fClientes;
@@ -45,11 +45,23 @@ void cadastrarVenda() {
         do {
             printf("Código do produto: ");
             scanf(" %d", itensCompra.codigoProduto);
-            fProdutos = fopen("../Arquivos/Produtos.dat", "rb");
+            limpaTela();
+            fProdutos = fopen("../Arquivos/Produtos.dat", "rb+");
             if (fProdutos) {
-                while (fread(&produto, sizeof(tProduto), 1, fProdutos)) {
-                    if(itensCompra.codigoProduto == produto.codigo))
+                existe = 0;
+                while (fread(&produto, sizeof(tProduto), 1, fProdutos) && existe == 0) {
+                    if(itensCompra.codigoProduto == produto.codigo)
+                        existe = 1;
                 }
+                if (existe == 1){
+                    if (produto.estoque > 0)
+                        printf("%s\t%");
+                    else
+                        printf("Não há quantidade disponível do produto");
+                }
+                else
+                    printf("Código inválido\n\n");
+                fclose(fProdutos);
             }
         } while ();
 
