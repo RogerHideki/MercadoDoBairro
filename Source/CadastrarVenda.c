@@ -7,11 +7,13 @@
 void cadastrarVenda() {
     tVenda venda;
     tCliente cliente;
-    tItensCompra itemCompra;
+    tProduto produto;
+    tItensCompra itensCompra;
     int codigo = 1, cadastrado = 0;
     time_t t = time(NULL);
     struct tm dataAtual = *localtime(&t);
     FILE *fClientes;
+    FILE *fProdutos;
     FILE *fVendas = fopen("../Arquivos/Vendas.dat", "rb");
 
     if (fVendas) {
@@ -40,8 +42,17 @@ void cadastrarVenda() {
         venda.dataCompra.dia = dataAtual.tm_mday;
         venda.dataCompra.mes = dataAtual.tm_mon + 1;
         venda.dataCompra.ano = dataAtual.tm_year + 1900;
-        printf("Código do produto: ");
-        scanf(" %[^\n]s", venda.cpfCliente);
+        do {
+            printf("Código do produto: ");
+            scanf(" %d", itensCompra.codigoProduto);
+            fProdutos = fopen("../Arquivos/Produtos.dat", "rb");
+            if (fProdutos) {
+                while (fread(&produto, sizeof(tProduto), 1, fProdutos)) {
+                    if(itensCompra.codigoProduto == produto.codigo))
+                }
+            }
+        } while ();
+
 
 
 
