@@ -5,7 +5,8 @@
 
 void cadastrarVenda() {
     tVenda venda;
-    int codigo = 1;
+    tCliente cliente;
+    int codigo = 1, cadastrado = 0;
     FILE *fClientes;
     FILE *fVendas = fopen("../Arquivos/Vendas.dat", "rb");
 
@@ -19,10 +20,23 @@ void cadastrarVenda() {
 
     if (fVendas) {
         venda.codigo = codigo;
+        printf("CPF: ");
+        scanf(" %[^\n]s", venda.cpfCliente);
+        cadastrado = 1;
         fClientes = fopen("../Arquivos/Cliente.dat", "rb");
         if (fClientes) {
-            //strcmp();
+            while (fread(&cliente, sizeof(tCliente), 1, fClientes) && cadastrado == 1) {
+                if (strcmp(venda.cpfCliente, cliente.cpf) == 0)
+                    cadastrado = 0;
+            }
+            fclose(fClientes);
         }
+        if (cadastrado == 1)
+            cadastrarCliente(cadastrado);
+        printf("Código do produto: ");
+        scanf(" %[^\n]s", venda.cpfCliente);
+
+
 
         fwrite(&venda, sizeof(tVenda), 1, fVendas);
         fclose(fVendas);

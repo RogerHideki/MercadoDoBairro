@@ -2,8 +2,8 @@
 #include "Funcoes.h"
 
 void menuClientes() {
-    //Variável
-    int opcao;
+    //Variáveis
+    int opcao, cadastrado = 1;
 
     do {
         //Imprime o menu de clientes
@@ -21,7 +21,7 @@ void menuClientes() {
         //Seleciona a opção escolhida
         switch (opcao) {
             case 1:
-                cadastrarCliente();
+                cadastrarCliente(cadastrado);
                 break;
             case 2:
                 alterarDadosCliente();

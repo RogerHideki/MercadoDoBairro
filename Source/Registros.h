@@ -31,7 +31,7 @@ typedef struct tProduto {
 
 typedef struct tItensCompra {
     int codigo, codigoProduto, quantidade;
-    char cpfCliente;
+    char cpfCliente[13];
     float precoUnitario, precoTotal;
 } tItensCompra;
 
