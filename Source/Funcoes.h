@@ -13,6 +13,8 @@ void menuProdutos();
 
 void limpaTela();
 
+int cadastrarVenda();
+
 int cadastrarCliente();
 
 int idade();

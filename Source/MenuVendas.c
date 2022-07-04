@@ -19,7 +19,7 @@ void menuVendas() {
         //Seleciona a opção escolhida
         switch (opcao) {
             case 1:
-
+                    codigo += cadastrarVenda(codigo);
                 break;
             case 2:
 
