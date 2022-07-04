@@ -9,7 +9,7 @@ void cadastrarVenda() {
     tCliente cliente;
     tProduto produto;
     tItensCompra itensCompra;
-    int codigo = 1, cadastrado = 0, existe;
+    int codigo = 1, cadastrado, existe, continuar;
     time_t t = time(NULL);
     struct tm dataAtual = *localtime(&t);
     FILE *fClientes;
@@ -17,15 +17,16 @@ void cadastrarVenda() {
     FILE *fVendas = fopen("../Arquivos/Vendas.dat", "rb");
 
     if (fVendas) {
-    while (fread(&venda, sizeof(tVenda), 1, fVendas))
-        codigo += 1;
-    fclose(fVendas);
+        while (fread(&venda, sizeof(tVenda), 1, fVendas))
+            codigo += 1;
+        fclose(fVendas);
     }
 
     fVendas = fopen("../Arquivos/Vendas.dat", "ab");
 
     if (fVendas) {
         venda.codigo = codigo;
+        venda.quantidadeProdutos = 0;
         printf("CPF: ");
         scanf(" %[^\n]s", venda.cpfCliente);
         cadastrado = 1;
@@ -43,35 +44,46 @@ void cadastrarVenda() {
         venda.dataCompra.mes = dataAtual.tm_mon + 1;
         venda.dataCompra.ano = dataAtual.tm_year + 1900;
         do {
-            limpaTela();
             printf("\nCódigo do produto: ");
-            scanf(" %d", itensCompra.codigoProduto);
+            scanf(" %d", &itensCompra.codigoProduto);
             fProdutos = fopen("../Arquivos/Produtos.dat", "rb+");
             if (fProdutos) {
                 existe = 0;
-                while (fread(&produto, sizeof(tProduto), 1, fProdutos) && existe == 0) {
-                    if(itensCompra.codigoProduto == produto.codigo)
+                while (existe == 0 && fread(&produto, sizeof(tProduto), 1, fProdutos)) {
+                    if (itensCompra.codigoProduto == produto.codigo)
                         existe = 1;
                 }
-                if (existe == 1){
+                if (existe == 1) {
                     if (produto.estoque > 0) {
                         printf("%s\tR$ %.2lf\t%d unidades\n\n", produto.nome, produto.preco, produto.estoque);
-                        printf("Quantidade: ")
-                    }
-                    else
+                        printf("Quantidade: ");
+                        scanf(" %d", &itensCompra.quantidade);
+                        if (itensCompra.quantidade <= produto.estoque) {
+                            produto.estoque = produto.estoque - itensCompra.quantidade;
+                            fseek(fProdutos, (produto.codigo - 1) * sizeof(tProduto), SEEK_SET);
+                            fwrite(&produto, sizeof(tProduto), 1, fProdutos);
+                            venda.quantidadeProdutos++;
+                            itensCompra.precoUnitario = produto.preco;
+                            itensCompra.precoTotal = itensCompra.precoUnitario * itensCompra.quantidade;
+                            venda.precoTotal += itensCompra.precoTotal;
+                            limpaTela();
+                        } else {
+                            limpaTela();
+                            printf("Não há quantidade disponível do produto");
+                        }
+                    } else {
+                        limpaTela();
                         printf("Não há quantidade disponível do produto");
-                }
-                else {
+                    }
+                } else {
                     limpaTela();
                     printf("Código inválido\n\n");
                 }
                 fclose(fProdutos);
             }
-        } while ();
-
-
-
-
+            printf("Digite 1 para continuar, ou digite qualquer outro número para finalizar a compra: ");
+            scanf(" %d", &continuar);
+        } while (continuar == 1);
         fwrite(&venda, sizeof(tVenda), 1, fVendas);
         fclose(fVendas);
         limpaTela();
