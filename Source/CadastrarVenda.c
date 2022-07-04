@@ -43,8 +43,9 @@ void cadastrarVenda() {
         venda.dataCompra.dia = dataAtual.tm_mday;
         venda.dataCompra.mes = dataAtual.tm_mon + 1;
         venda.dataCompra.ano = dataAtual.tm_year + 1900;
+        limpaTela();
         do {
-            printf("\nCódigo do produto: ");
+            printf("Código do produto: ");
             scanf(" %d", &itensCompra.codigoProduto);
             fProdutos = fopen("../Arquivos/Produtos.dat", "rb+");
             if (fProdutos) {
@@ -55,7 +56,7 @@ void cadastrarVenda() {
                 }
                 if (existe == 1) {
                     if (produto.estoque > 0) {
-                        printf("%s\tR$ %.2lf\t%d unidades\n\n", produto.nome, produto.preco, produto.estoque);
+                        printf("\n%s\tR$ %.2lf\t%d unidades\n\n", produto.nome, produto.preco, produto.estoque);
                         printf("Quantidade: ");
                         scanf(" %d", &itensCompra.quantidade);
                         if (itensCompra.quantidade <= produto.estoque) {
@@ -63,17 +64,17 @@ void cadastrarVenda() {
                             fseek(fProdutos, (produto.codigo - 1) * sizeof(tProduto), SEEK_SET);
                             fwrite(&produto, sizeof(tProduto), 1, fProdutos);
                             venda.quantidadeProdutos++;
-                            itensCompra.precoUnitario = produto.preco;
-                            itensCompra.precoTotal = itensCompra.precoUnitario * itensCompra.quantidade;
+                            itensCompra.precoUnitario = (float)produto.preco;
+                            itensCompra.precoTotal = itensCompra.precoUnitario * (float)itensCompra.quantidade;
                             venda.precoTotal += itensCompra.precoTotal;
                             limpaTela();
                         } else {
                             limpaTela();
-                            printf("Não há quantidade disponível do produto");
+                            printf("Não há quantidade disponível do produto\n\n");
                         }
                     } else {
                         limpaTela();
-                        printf("Não há quantidade disponível do produto");
+                        printf("Não há quantidade disponível do produto\n\n");
                     }
                 } else {
                     limpaTela();
@@ -81,7 +82,7 @@ void cadastrarVenda() {
                 }
                 fclose(fProdutos);
             }
-            printf("Digite 1 para continuar, ou digite qualquer outro número para finalizar a compra: ");
+            printf("Digite 1 para continuar a compra, ou digite qualquer outro número para finalizar a compra: ");
             scanf(" %d", &continuar);
         } while (continuar == 1);
         fwrite(&venda, sizeof(tVenda), 1, fVendas);
