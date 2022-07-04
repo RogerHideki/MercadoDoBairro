@@ -1,18 +1,9 @@
 #include <stdio.h>
 #include "Funcoes.h"
-#include "Registros.h"
 
 void menuVendas() {
-    //Variáveis
-    tVenda venda;
-    int opcao, codigo = 1;
-    FILE *fVendas = fopen("../Arquivos/Vendas.dat", "rb");
-
-    if (fVendas) {
-        while (fread(&venda, sizeof(tVenda), 1, fVendas))
-            codigo += 1;
-        fclose(fVendas);
-    }
+    //Variável
+    int opcao;
 
     do {
         //Imprime o menu de vendas
@@ -28,7 +19,7 @@ void menuVendas() {
         //Seleciona a opção escolhida
         switch (opcao) {
             case 1:
-                codigo += cadastrarVenda(codigo);
+
                 break;
             case 2:
 

@@ -1,8 +1,9 @@
 #include <stdio.h>
+#include <string.h>
 #include "Funcoes.h"
 #include "Registros.h"
 
-int cadastrarCliente(int codigo, int cpfCadastrado) {
+int cadastrarCliente(int codigo, int cpfCadastrado, char aux) {
     tCliente cliente;
     FILE *fClientes = fopen("../Arquivos/Cliente.dat", "ab");
 
@@ -12,6 +13,8 @@ int cadastrarCliente(int codigo, int cpfCadastrado) {
             printf("CPF: ");
             scanf(" %[^\n]s", cliente.cpf);
         }
+        else
+            strcpy(cliente.cpf, aux);
         printf("Nome: ");
         scanf(" %[^\n]s", cliente.nome);
         printf("Data de nascimento: ");
