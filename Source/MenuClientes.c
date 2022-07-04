@@ -3,7 +3,7 @@
 
 void menuClientes() {
     //Variáveis
-    int opcao, cadastrado = 1;
+    int opcao, cadastrado = 0;
 
     do {
         //Imprime o menu de clientes

@@ -1,12 +1,16 @@
 #include <stdio.h>
 #include <string.h>
+#include <time.h>
 #include "Funcoes.h"
 #include "Registros.h"
 
 void cadastrarVenda() {
     tVenda venda;
     tCliente cliente;
+    tItensCompra itemCompra;
     int codigo = 1, cadastrado = 0;
+    time_t t = time(NULL);
+    struct tm dataAtual = *localtime(&t);
     FILE *fClientes;
     FILE *fVendas = fopen("../Arquivos/Vendas.dat", "rb");
 
@@ -33,6 +37,9 @@ void cadastrarVenda() {
         }
         if (cadastrado == 1)
             cadastrarCliente(cadastrado);
+        venda.dataCompra.dia = dataAtual.tm_mday;
+        venda.dataCompra.mes = dataAtual.tm_mon + 1;
+        venda.dataCompra.ano = dataAtual.tm_year + 1900;
         printf("Código do produto: ");
         scanf(" %[^\n]s", venda.cpfCliente);
 
