@@ -13,7 +13,7 @@ void menuProdutos();
 
 void limpaTela();
 
-int cadastrarVenda();
+void cadastrarVenda();
 
 void cadastrarCliente();
 
