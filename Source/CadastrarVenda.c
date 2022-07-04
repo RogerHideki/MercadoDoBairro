@@ -43,9 +43,9 @@ void cadastrarVenda() {
         venda.dataCompra.mes = dataAtual.tm_mon + 1;
         venda.dataCompra.ano = dataAtual.tm_year + 1900;
         do {
-            printf("Código do produto: ");
-            scanf(" %d", itensCompra.codigoProduto);
             limpaTela();
+            printf("\nCódigo do produto: ");
+            scanf(" %d", itensCompra.codigoProduto);
             fProdutos = fopen("../Arquivos/Produtos.dat", "rb+");
             if (fProdutos) {
                 existe = 0;
@@ -54,13 +54,17 @@ void cadastrarVenda() {
                         existe = 1;
                 }
                 if (existe == 1){
-                    if (produto.estoque > 0)
-                        printf("%s\t%");
+                    if (produto.estoque > 0) {
+                        printf("%s\tR$ %.2lf\t%d unidades\n\n", produto.nome, produto.preco, produto.estoque);
+                        printf("Quantidade: ")
+                    }
                     else
                         printf("Não há quantidade disponível do produto");
                 }
-                else
+                else {
+                    limpaTela();
                     printf("Código inválido\n\n");
+                }
                 fclose(fProdutos);
             }
         } while ();
