@@ -5,11 +5,15 @@
 
 int cadastrarVenda(int codigo) {
     tVenda venda;
-    FILE *fClientes = fopen("../Arquivos/Cliente.dat", "rb+");
+    FILE *fClientes;
     FILE *fVendas = fopen("../Arquivos/Vendas.dat", "ab");
 
     if (fVendas) {
         venda.codigo = codigo;
+        fClientes = fopen("../Arquivos/Cliente.dat", "rb");
+        if (fClientes) {
+            strcmp();
+        }
 
         fwrite(&venda, sizeof(tVenda), 1, fVendas);
         fclose(fVendas);
