@@ -4,7 +4,7 @@
 #include "Funcoes.h"
 #include "Registros.h"
 
-int cadastrarProduto() {
+void cadastrarProduto() {
     tProduto produto;
     int codigo = 1;
     bool valido;
@@ -65,5 +65,4 @@ int cadastrarProduto() {
         limpaTela();
         printf("Erro ao abrir arquivo\n\n");
     }
-    return 1;
 }

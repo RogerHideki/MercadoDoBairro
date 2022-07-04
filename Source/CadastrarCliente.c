@@ -2,9 +2,18 @@
 #include "Funcoes.h"
 #include "Registros.h"
 
-int cadastrarCliente(int codigo) {
+void cadastrarCliente() {
     tCliente cliente;
-    FILE *fClientes = fopen("../Arquivos/Cliente.dat", "ab");
+    int codigo = 1;
+    FILE *fClientes = fopen("../Arquivos/Cliente.dat", "rb");
+
+    if (fClientes) {
+        while (fread(&cliente, sizeof(tCliente), 1, fClientes))
+            codigo += 1;
+        fclose(fClientes);
+    }
+
+    fClientes = fopen("../Arquivos/Cliente.dat", "ab");
 
     if (fClientes) {
         cliente.codigo = codigo;
@@ -30,5 +39,4 @@ int cadastrarCliente(int codigo) {
         limpaTela();
         printf("Erro ao abrir arquivo\n\n");
     }
-    return 1;
 }

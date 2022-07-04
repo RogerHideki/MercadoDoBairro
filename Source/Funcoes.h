@@ -15,7 +15,7 @@ void limpaTela();
 
 int cadastrarVenda();
 
-int cadastrarCliente();
+void cadastrarCliente();
 
 int idade();
 
@@ -25,7 +25,7 @@ void quantidadeClientesIdadeEntre18E25();
 
 void clientesMais1000Pontos();
 
-int cadastrarProduto();
+void cadastrarProduto();
 
 void alterarDadosProduto();
 
