@@ -12,7 +12,7 @@ int cadastrarVenda(int codigo) {
         venda.codigo = codigo;
         fClientes = fopen("../Arquivos/Cliente.dat", "rb");
         if (fClientes) {
-            strcmp();
+            //strcmp();
         }
 
         fwrite(&venda, sizeof(tVenda), 1, fVendas);

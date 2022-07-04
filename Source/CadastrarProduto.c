@@ -4,10 +4,19 @@
 #include "Funcoes.h"
 #include "Registros.h"
 
-int cadastrarProduto(int codigo) {
+int cadastrarProduto() {
     tProduto produto;
+    int codigo = 1;
     bool valido;
-    FILE *fProdutos = fopen("../Arquivos/Produtos.dat", "ab");
+    FILE *fProdutos = fopen("../Arquivos/Produtos.dat", "rb");
+
+    if(fProdutos) {
+        while (fread(&produto, sizeof(tProduto), 1, fProdutos))
+            codigo += 1;
+        fclose(fProdutos);
+    }
+
+    fProdutos = fopen("../Arquivos/Produtos.dat", "ab");
 
     if (fProdutos) {
         produto.codigo = codigo;
