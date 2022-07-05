@@ -44,6 +44,7 @@ void cadastrarVenda() {
         venda.dataCompra.mes = dataAtual.tm_mon + 1;
         venda.dataCompra.ano = dataAtual.tm_year + 1900;
         limpaTela();
+        itensCompra.precoTotal = 0;
         do {
             printf("Código do produto: ");
             scanf(" %d", &itensCompra.codigoProduto);
@@ -65,8 +66,7 @@ void cadastrarVenda() {
                             fwrite(&produto, sizeof(tProduto), 1, fProdutos);
                             venda.quantidadeProdutos++;
                             itensCompra.precoUnitario = (float)produto.preco;
-                            itensCompra.precoTotal = itensCompra.precoUnitario * (float)itensCompra.quantidade;
-                            venda.precoTotal += itensCompra.precoTotal;
+                            itensCompra.precoTotal += (itensCompra.precoUnitario * (float)itensCompra.quantidade);
                             limpaTela();
                         } else {
                             limpaTela();
@@ -85,6 +85,7 @@ void cadastrarVenda() {
             printf("Digite 1 para continuar a compra, ou digite qualquer outro número para finalizar a compra: ");
             scanf(" %d", &continuar);
         } while (continuar == 1);
+        venda.precoTotal = itensCompra.precoTotal;
         fClientes = fopen("../Arquivos/Cliente.dat", "rb+");
         if (fClientes) {
             cliente.pontos += (int)venda.precoTotal;

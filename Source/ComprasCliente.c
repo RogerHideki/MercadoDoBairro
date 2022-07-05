@@ -31,7 +31,7 @@ void comprasCliente() {
             printf("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
             while (fread(&venda, sizeof(tVenda), 1, fVendas)) {
                 if (strcmp(cpf, venda.cpfCliente) == 0) {
-                    printf("%2d/%2d/%4d\tR$ %.2f\t%d\n", venda.dataCompra.dia, venda.dataCompra.mes,
+                    printf("%2d/%2d/%4d\tR$ %.2f\t%d produtos\n", venda.dataCompra.dia, venda.dataCompra.mes,
                            venda.dataCompra.ano, venda.precoTotal, venda.quantidadeProdutos);
                 }
             }
