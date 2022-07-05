@@ -22,7 +22,7 @@ void estoquePorSetor() {
             else if (i == 3)
                 printf("Padaria:\n");
             else
-                printf("Açougue:\n");
+                printf("Acougue:\n");
             printf("---------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
             while (fread(&produto, sizeof(tProduto), 1, fProdutos)) {
                 if (i == 0 && strcmp(produto.setor, "Higiene e limpeza") == 0) {
@@ -41,7 +41,7 @@ void estoquePorSetor() {
                     printf("%d - %20s\t%50s\tR$ %.2lf\t%2d/%2d/%4d\t%d unidades\n", produto.codigo, produto.setor,
                            produto.nome, produto.preco, produto.validade.dia, produto.validade.mes,
                            produto.validade.ano, produto.estoque);
-                } else if (i == 4 && strcmp(produto.setor, "Açougue") == 0) {
+                } else if (i == 4 && strcmp(produto.setor, "Acougue") == 0) {
                     printf("%d - %20s\t%50s\tR$ %.2lf\t%2d/%2d/%4d\t%d unidades\n", produto.codigo, produto.setor,
                            produto.nome, produto.preco, produto.validade.dia, produto.validade.mes,
                            produto.validade.ano, produto.estoque);
