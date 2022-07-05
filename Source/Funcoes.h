@@ -15,6 +15,8 @@ void limpaTela();
 
 void cadastrarVenda();
 
+void comprasClientes();
+
 void cadastrarCliente();
 
 int idade();

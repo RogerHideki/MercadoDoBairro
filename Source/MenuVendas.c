@@ -22,7 +22,7 @@ void menuVendas() {
                 cadastrarVenda();
                 break;
             case 2:
-
+                comprasCliente();
                 break;
             default:
                 if (opcao != 9)
