@@ -85,6 +85,13 @@ void cadastrarVenda() {
             printf("Digite 1 para continuar a compra, ou digite qualquer outro número para finalizar a compra: ");
             scanf(" %d", &continuar);
         } while (continuar == 1);
+        fClientes = fopen("../Arquivos/Cliente.dat", "rb+");
+        if (fClientes) {
+            cliente.pontos += (int)venda.precoTotal;
+            fseek(fClientes, (cliente.codigo - 1) * sizeof(tCliente), SEEK_SET);
+            fwrite(&cliente, sizeof(tCliente), 1, fClientes);
+            fclose(fClientes);
+        }
         fwrite(&venda, sizeof(tVenda), 1, fVendas);
         fclose(fVendas);
         limpaTela();
