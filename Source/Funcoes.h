@@ -15,7 +15,7 @@ void limpaTela();
 
 void cadastrarVenda();
 
-void comprasClientes();
+void comprasCliente();
 
 void cadastrarCliente();
 
