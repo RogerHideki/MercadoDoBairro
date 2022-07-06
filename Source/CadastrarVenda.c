@@ -38,9 +38,13 @@ void cadastrarVenda() {
             }
             fclose(fClientes);
         }
-        if (cadastrado == 1){
+        if (cadastrado == 1) {
             cadastrarCliente(cadastrado, venda);
-            cliente.codigo++;
+            fClientes = fopen("../Arquivos/Cliente.dat", "rb");
+            if (fClientes) {
+                while (fread(&cliente, sizeof(tCliente), 1, fClientes)) {}
+                fclose(fClientes);
+            }
         }
         venda.dataCompra.dia = dataAtual.tm_mday;
         venda.dataCompra.mes = dataAtual.tm_mon + 1;
@@ -67,8 +71,8 @@ void cadastrarVenda() {
                             fseek(fProdutos, (produto.codigo - 1) * sizeof(tProduto), SEEK_SET);
                             fwrite(&produto, sizeof(tProduto), 1, fProdutos);
                             venda.quantidadeProdutos++;
-                            itensCompra.precoUnitario = (float)produto.preco;
-                            itensCompra.precoTotal += (itensCompra.precoUnitario * (float)itensCompra.quantidade);
+                            itensCompra.precoUnitario = (float) produto.preco;
+                            itensCompra.precoTotal += (itensCompra.precoUnitario * (float) itensCompra.quantidade);
                             limpaTela();
                         } else {
                             limpaTela();
@@ -90,7 +94,7 @@ void cadastrarVenda() {
         venda.precoTotal = itensCompra.precoTotal;
         fClientes = fopen("../Arquivos/Cliente.dat", "rb+");
         if (fClientes) {
-            cliente.pontos += (int)venda.precoTotal;
+            cliente.pontos += (int) venda.precoTotal;
             fseek(fClientes, (cliente.codigo - 1) * sizeof(tCliente), SEEK_SET);
             fwrite(&cliente, sizeof(tCliente), 1, fClientes);
             fclose(fClientes);
