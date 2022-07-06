@@ -38,8 +38,10 @@ void cadastrarVenda() {
             }
             fclose(fClientes);
         }
-        if (cadastrado == 1)
+        if (cadastrado == 1){
             cadastrarCliente(cadastrado, venda);
+            cliente.codigo++;
+        }
         venda.dataCompra.dia = dataAtual.tm_mday;
         venda.dataCompra.mes = dataAtual.tm_mon + 1;
         venda.dataCompra.ano = dataAtual.tm_year + 1900;
