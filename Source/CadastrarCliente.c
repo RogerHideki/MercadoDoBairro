@@ -3,9 +3,8 @@
 #include "Funcoes.h"
 #include "Registros.h"
 
-void cadastrarCliente(int cadastrado) {
+void cadastrarCliente(int cadastrado, tVenda venda) {
     tCliente cliente;
-    tVenda venda;
     int codigo = 1;
     FILE *fClientes = fopen("../Arquivos/Cliente.dat", "rb");
 

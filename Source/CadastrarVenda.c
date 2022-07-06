@@ -32,14 +32,14 @@ void cadastrarVenda() {
         cadastrado = 1;
         fClientes = fopen("../Arquivos/Cliente.dat", "rb");
         if (fClientes) {
-            while (fread(&cliente, sizeof(tCliente), 1, fClientes) && cadastrado == 1) {
+            while (cadastrado == 1 && fread(&cliente, sizeof(tCliente), 1, fClientes)) {
                 if (strcmp(venda.cpfCliente, cliente.cpf) == 0)
                     cadastrado = 0;
             }
             fclose(fClientes);
         }
         if (cadastrado == 1)
-            cadastrarCliente(cadastrado);
+            cadastrarCliente(cadastrado, venda);
         venda.dataCompra.dia = dataAtual.tm_mday;
         venda.dataCompra.mes = dataAtual.tm_mon + 1;
         venda.dataCompra.ano = dataAtual.tm_year + 1900;
