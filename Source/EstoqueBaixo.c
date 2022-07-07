@@ -11,6 +11,8 @@ void estoqueBaixo() {
         printf("---------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
         while (fread(&produto, sizeof(tProduto), 1, fProdutos)) {
             if (produto.estoque < 5) {
+
+                //LISTAGEM DE PRODUTOS COM ESTOQUE ABAIXO DE 5 UNIDADES
                 printf("%d - %20s\t%50s\tR$ %.2lf\t%2d/%2d/%4d\t%d unidades\n", produto.codigo, produto.setor,
                        produto.nome, produto.preco, produto.validade.dia, produto.validade.mes, produto.validade.ano,
                        produto.estoque);

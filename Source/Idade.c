@@ -2,6 +2,8 @@
 #include <time.h>
 #include "Registros.h"
 
+//FUNÇÃO PARA ENCONTRAR A IDADE DO CLIENTE
+
 int idade(tCliente cliente) {
     time_t t = time(NULL);
     struct tm dataAtual = *localtime(&t);

@@ -10,6 +10,8 @@ void quantidadeClientesIdadeEntre18E25() {
     fClientes = fopen("../Arquivos/Cliente.dat", "rb");
 
     if (fClientes) {
+
+        //CONTANDO QUANTOS CLIENTES ESTÃO ENTRE 18 À 25 ANOS
         while (fread(&cliente, sizeof(tCliente), 1, fClientes)) {
             if (cliente.idade >= 18 && cliente.idade <= 25)
                 i++;

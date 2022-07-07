@@ -11,6 +11,7 @@ void estoquePorSetor() {
     for (i = 0; i < 5; i++) {
         fProdutos = fopen("../Arquivos/Produtos.dat", "rb");
 
+        //SEPARAÇÃO NA IMPRESSÃO DOS SETORES
         if (fProdutos) {
             printf("Estoque de Produtos do Setor ");
             if (i == 0)
@@ -25,6 +26,8 @@ void estoquePorSetor() {
                 printf("Acougue:\n");
             printf("---------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
             while (fread(&produto, sizeof(tProduto), 1, fProdutos)) {
+
+                //IMPRESSÃO DO ESTOQUE DE SETORES
                 if (i == 0 && strcmp(produto.setor, "Higiene e limpeza") == 0) {
                     printf("%d - %20s\t%50s\tR$ %.2lf\t%2d/%2d/%4d\t%d unidades\n", produto.codigo, produto.setor,
                            produto.nome, produto.preco, produto.validade.dia, produto.validade.mes,

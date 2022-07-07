@@ -8,6 +8,7 @@ void cadastrarCliente(int cadastrado, tVenda venda) {
     int codigo = 1;
     FILE *fClientes = fopen("../Arquivos/Cliente.dat", "rb");
 
+    //GERADOR DE CÓDIGO DO CLIENTE
     if (fClientes) {
         while (fread(&cliente, sizeof(tCliente), 1, fClientes))
             codigo += 1;
@@ -17,6 +18,8 @@ void cadastrarCliente(int cadastrado, tVenda venda) {
     fClientes = fopen("../Arquivos/Cliente.dat", "ab");
 
     if (fClientes) {
+
+        //ENTRADA DE DADOS DO CLIENTE
         cliente.codigo = codigo;
         if (cadastrado == 0) {
             printf("CPF: ");
@@ -37,6 +40,8 @@ void cadastrarCliente(int cadastrado, tVenda venda) {
         printf("Estado: ");
         scanf(" %[^\n]s", cliente.estado);
         cliente.pontos = 0;
+
+        //REGISTRO DOS DADOS DO CLIENTE NO ARQUIVO
         fwrite(&cliente, sizeof(tCliente), 1, fClientes);
         fclose(fClientes);
         limpaTela();

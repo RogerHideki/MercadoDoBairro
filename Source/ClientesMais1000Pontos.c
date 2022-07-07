@@ -11,6 +11,8 @@ void clientesMais1000Pontos() {
     if (fClientes) {
         printf("Lista de Clientes com Mais de 1000 Pontos:\n");
         printf("---------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+
+        //LISTAGEM DE CLIENTES COM MAIS DE 1000 PONTOS
         while (fread(&cliente, sizeof(tCliente), 1, fClientes)) {
             if (cliente.pontos > 1000) {
                 printf("%d - %13s\t%50s\t%2d/%2d/%4d\t%d anos\t%50s\t%50s\t%2s\t%d pontos\n", cliente.codigo,

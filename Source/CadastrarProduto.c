@@ -10,6 +10,7 @@ void cadastrarProduto() {
     bool valido;
     FILE *fProdutos = fopen("../Arquivos/Produtos.dat", "rb");
 
+    //GERADOR DE CÓDIGOS AUTOMÁTICOS
     if(fProdutos) {
         while (fread(&produto, sizeof(tProduto), 1, fProdutos))
             codigo += 1;
@@ -21,6 +22,8 @@ void cadastrarProduto() {
     if (fProdutos) {
         produto.codigo = codigo;
         valido = false;
+
+        //ENTRADA DE INFORMAÇÕES DOS PRODUTOS
         while (!valido) {
             printf("Setor: ");
             scanf(" %[^\n]s", produto.setor);
@@ -58,6 +61,8 @@ void cadastrarProduto() {
                 printf("\nQuantidade inválida, digite uma quantidade válida\n\n");
             }
         }
+
+        //REGISTRANDO DADOS NO ARQUIVO
         fwrite(&produto, sizeof(tProduto), 1, fProdutos);
         fclose(fProdutos);
         limpaTela();

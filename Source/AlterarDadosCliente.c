@@ -8,6 +8,8 @@ void alterarDadosCliente() {
     FILE *fClientes = fopen("../Arquivos/Cliente.dat", "rb+");
 
     if (fClientes) {
+
+        //LISTAGEM DE TODOS OS CLIENTES CADASTRADOS
         printf("Lista de Clientes:\n");
         printf("---------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
         while (fread(&cliente, sizeof(tCliente), 1, fClientes)) {
@@ -17,13 +19,17 @@ void alterarDadosCliente() {
         }
         printf("---------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n");
 
+        //ENTRADA DO CÓDIGO CORRESPONDENTE DO CLIENTE QUE TERÁ SEUS DADOS ALTERADOS
         printf("Digite o código do cliente que deseja alterar: ");
         scanf(" %d", &opcao);
         opcao--;
         limpaTela();
 
+        //PARAMETRO DE ENTRADA, CASO SEJA UM CÓDIGO CORRESPONDENTE, EDITA, CASO NÃO, SAI
         if (opcao >= 0 && opcao < cliente.codigo) {
             cliente.codigo = opcao + 1;
+
+            //ENTRADA DE DADOS PARA ATUALIZAÇÃO DE INFORMAÇÕES DO CLIENTE
             printf("CPF: ");
             scanf(" %[^\n]s", cliente.cpf);
             printf("Nome: ");
@@ -40,6 +46,8 @@ void alterarDadosCliente() {
             scanf(" %[^\n]s", cliente.estado);
             printf("Pontos: ");
             scanf(" %d", &cliente.pontos);
+
+            //REGISTRO DAS INFORMAÇÕES DOS DADOS ATUALIZADOS NO ARQUIVO
             fseek(fClientes, opcao * sizeof(tCliente), SEEK_SET);
             fwrite(&cliente, sizeof(tCliente), 1, fClientes);
             limpaTela();

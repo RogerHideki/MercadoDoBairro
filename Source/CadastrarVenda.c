@@ -16,6 +16,7 @@ void cadastrarVenda() {
     FILE *fProdutos;
     FILE *fVendas = fopen("../Arquivos/Vendas.dat", "rb");
 
+    //GERADOR AUTOMÁTICO DE CÓDIGO DE VENDAS
     if (fVendas) {
         while (fread(&venda, sizeof(tVenda), 1, fVendas))
             codigo += 1;
@@ -27,11 +28,15 @@ void cadastrarVenda() {
     if (fVendas) {
         venda.codigo = codigo;
         venda.quantidadeProdutos = 0;
+
+        //ENTRADA DO CPF DO CLIENTE
         printf("CPF: ");
         scanf(" %[^\n]s", venda.cpfCliente);
         cadastrado = 1;
         fClientes = fopen("../Arquivos/Cliente.dat", "rb");
         if (fClientes) {
+
+            //VERIFICAÇÃO SE O CLIENTE É CADASTRADO
             while (cadastrado == 1 && fread(&cliente, sizeof(tCliente), 1, fClientes)) {
                 if (strcmp(venda.cpfCliente, cliente.cpf) == 0)
                     cadastrado = 0;
@@ -39,6 +44,8 @@ void cadastrarVenda() {
             fclose(fClientes);
         }
         if (cadastrado == 1) {
+
+            //SE NÃO, O USUÁRIO É REDIRECIONADO PARA A FUNÇÃO DE CADASTRADO
             cadastrarCliente(cadastrado, venda);
             fClientes = fopen("../Arquivos/Cliente.dat", "rb");
             if (fClientes) {
@@ -52,15 +59,21 @@ void cadastrarVenda() {
         limpaTela();
         itensCompra.precoTotal = 0;
         do {
+
+            //ENTRADA DOS PRODUTOS
             printf("Código do produto: ");
             scanf(" %d", &itensCompra.codigoProduto);
             fProdutos = fopen("../Arquivos/Produtos.dat", "rb+");
             if (fProdutos) {
                 existe = 0;
+
+                //VERIFICAÇÃO SE O PRODUTO EXISTE NO ESTOQUE
                 while (existe == 0 && fread(&produto, sizeof(tProduto), 1, fProdutos)) {
                     if (itensCompra.codigoProduto == produto.codigo)
                         existe = 1;
                 }
+
+                //SE SIM, REALIZA A VENDA
                 if (existe == 1) {
                     if (produto.estoque > 0) {
                         printf("\n%s\tR$ %.2lf\t%d unidades\n\n", produto.nome, produto.preco, produto.estoque);
@@ -83,6 +96,8 @@ void cadastrarVenda() {
                         printf("Não há quantidade disponível do produto\n\n");
                     }
                 } else {
+
+                    //SE NÃO, SERÁ AVISADO
                     limpaTela();
                     printf("Código inválido\n\n");
                 }
@@ -93,6 +108,8 @@ void cadastrarVenda() {
         } while (continuar == 1);
         venda.precoTotal = itensCompra.precoTotal;
         fClientes = fopen("../Arquivos/Cliente.dat", "rb+");
+
+        //ATUALIZAÇÃO DE PONTOS DO CLIENTE
         if (fClientes) {
             cliente.pontos += (int) venda.precoTotal;
             fseek(fClientes, (cliente.codigo - 1) * sizeof(tCliente), SEEK_SET);

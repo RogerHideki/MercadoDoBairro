@@ -11,6 +11,8 @@ void alterarDadosProduto() {
     FILE *fProdutos = fopen("../Arquivos/Produtos.dat", "rb+");
 
     if (fProdutos) {
+
+        ///LISTAGEM DE TODO O ESTOQUE
         printf("Estoque de Produtos:\n");
         printf("---------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
         while (fread(&produto, sizeof(tProduto), 1, fProdutos)) {
@@ -19,11 +21,14 @@ void alterarDadosProduto() {
         }
         printf("---------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n");
 
+        //ENTRADA DO CÓDIGO CORRESPONDENTE PARA ALTERAÇÃO
         printf("Digite o código do produto que deseja alterar: ");
         scanf(" %d", &opcao);
         opcao--;
         limpaTela();
 
+
+        //PARAMETRO DE ENTRADA, CASO SEJA UM CÓDIGO CORRESPONDENTE, EDITA, CASO NÃO, SAI
         if (opcao >= 0 && opcao < produto.codigo) {
             produto.codigo = opcao + 1;
             valido = false;
@@ -39,6 +44,8 @@ void alterarDadosProduto() {
                     printf("\nSetor inválido, digite um setor válido\n\n");
                 }
             }
+
+            //ENTRADA DE DADOS PARA ATUALIZAÇÃO DE INFORMAÇÕES DE PRODUTO
             printf("Nome: ");
             scanf(" %[^\n]s", produto.nome);
             printf("Preço: ");
@@ -56,6 +63,8 @@ void alterarDadosProduto() {
                     printf("\nQuantidade inválida, digite uma quantidade válida\n\n");
                 }
             }
+
+            //REGISTRO DAS INFORMAÇÕES DOS DADOS ATUALIZADOS NO ARQUIVO
             fseek(fProdutos, opcao * sizeof(tProduto), SEEK_SET);
             fwrite(&produto, sizeof(tProduto), 1, fProdutos);
             limpaTela();
